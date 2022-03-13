@@ -23,7 +23,7 @@ function LoginComponent() {
     }
 
     if(email && password){
-      axios.post("http://localhost:5000/auth/signin", data)
+      axios.post("https://todoreduxxeggo.herokuapp.com/auth/signin", data)
         .then(res=>{
           setUser(res.data._id,res.data.username,res.data.email)
         })

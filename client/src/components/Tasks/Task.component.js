@@ -27,7 +27,7 @@ function TaskComponent() {
   useEffect(() => {
     if (user !== "") {
       console.log(user);
-      axios.get(`http://localhost:5000/task/${user.userId}`).then((res) => {
+      axios.get(`https://todoreduxxeggo.herokuapp.com/task/${user.userId}`).then((res) => {
         console.log(res);
         const data = res.data[0].task;
         updateTask(data);
@@ -46,7 +46,7 @@ function TaskComponent() {
         task: newTask,
       };
 
-      axios.post("http://localhost:5000/task/add", reqBody).then((res) => {
+      axios.post("https://todoreduxxeggo.herokuapp.com/task/add", reqBody).then((res) => {
         //   console.log(res.data[0].task)
         const data = res.data[0].task;
         updateTask(data);
@@ -61,7 +61,7 @@ function TaskComponent() {
     method: "update",
     };
 
-    axios.post("http://localhost:5000/task/edit", reqBody).then((res) => {
+    axios.post("https://todoreduxxeggo.herokuapp.com/task/edit", reqBody).then((res) => {
     //   console.log(res.data[0].task)
     const data = res.data[0].task;
     updateTask(data);
@@ -76,7 +76,7 @@ function TaskComponent() {
     };
 
 
-    axios.post("http://localhost:5000/task/edit", reqBody).then((res) => {
+    axios.post("https://todoreduxxeggo.herokuapp.com/task/edit", reqBody).then((res) => {
     //   console.log(res.data[0].task)
     const data = res.data[0].task;
     updateTask(data);

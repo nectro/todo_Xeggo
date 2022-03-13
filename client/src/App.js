@@ -34,7 +34,7 @@ function App() {
       task
     };
 
-  axios.post("http://localhost:5000/task/add", reqBody)
+  axios.post("https://todoreduxxeggo.herokuapp.com/task/add", reqBody)
       .then((res)=>{
           // console.log(res.data[0].task)
           const data = res.data[0].task;

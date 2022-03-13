@@ -24,7 +24,7 @@ function SignupComponent() {
     };
 
     if(email && password && userName){
-      axios.post("http://localhost:5000/auth/signup", data)
+      axios.post("https://todoreduxxeggo.herokuapp.com/auth/signup", data)
         .then(res=>{
           setUser(res.data.userId,res.data.name,res.data.email)
         })
