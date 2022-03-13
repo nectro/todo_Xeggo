@@ -2,13 +2,14 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import axios from 'axios';
 
+import Navigations from './navigation';
+
 import { useSelector } from 'react-redux';
 import { useDispatch } from "react-redux";
 import { bindActionCreators } from 'redux'
 import { actionCreators } from './state';
 
 function App() {
-  const [number, setNumber] = useState(null)
 
   const state = useSelector(state => state)
 
@@ -23,7 +24,6 @@ function App() {
 
   useEffect(()=>{
     console.log(state)
-    setNumber(state.account)
   },[state])
 
   const AddTask = (userId, task)=>{
@@ -45,8 +45,7 @@ function App() {
 
   return (
     <div className="App">
-      <div>{number}</div>
-      <button onClick={()=>AddTask("622c2fc18668dccdbf42ade1", "the best of the year")}>add</button>
+      <Navigations/>
     </div>
   );
 }
