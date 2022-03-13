@@ -1,8 +1,9 @@
 const router = require("express").Router();
 let Task = require("../models/tasks.model");
 
-router.route("/").get((req, res) => {
-  Task.find()
+router.route("/:id").get((req, res) => {
+  const userId = req.params.id;
+  Task.find({userId})
     .then((task) => {
       res.json(task);
     })
@@ -71,7 +72,11 @@ router.route("/edit/").post(async (req, res) => {
 
   Task.replaceOne({ userId: userId }, { userId, task: updatedTasks })
     .then(() => {
-      res.json("task updated!");
+      Task.find({ userId })
+        .then((task) => {
+          res.json(task);
+        })
+        .catch((err) => res.status(400).json(err));
     })
     .catch((err) => res.status(400).json(err));
 });

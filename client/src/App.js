@@ -18,9 +18,9 @@ function App() {
   const { updateTask, setUser } = bindActionCreators(actionCreators, dispatch);
 
 
-  useEffect(() => {
-    setUser("622c2fc18668dccdbf42ade1", "same", "email")
-  }, [])
+  // useEffect(() => {
+  //   setUser("622c2fc18668dccdbf42ade1", "same", "email")
+  // }, [])
 
   useEffect(()=>{
     console.log(state)

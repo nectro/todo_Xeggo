@@ -1,4 +1,4 @@
-const initState = {};
+const initState = null;
 
 
 const reducer = (state = initState, action)=>{
@@ -6,6 +6,8 @@ const reducer = (state = initState, action)=>{
         case "set_user":
             let userDetails = action.payload;
             return userDetails;
+        case "logout_user":
+            return null;
         default:
             return state;
     }

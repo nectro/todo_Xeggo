@@ -48,7 +48,7 @@
     margin-left:10px;
 }
 .markButton{
-    background-color: rgb(255, 85, 85);
+    background-color: rgb(60, 187, 56);
     height:25px;
     padding: 0px 17px;
     cursor: pointer;
@@ -57,7 +57,7 @@
     margin-left:10px;
 }
 .deleteButton{
-    background-color: rgb(60, 187, 56);
+    background-color: rgb(255, 85, 85);
     height:25px;
     padding: 0px 17px;
     cursor: pointer;

@@ -49,7 +49,7 @@ router.route('/signup').post(async (req,res)=>{
 
                 newTask.save()
                     .then(()=>{
-                        res.json("user added")
+                        res.json({userId:user._id,name:user.username,email:user.email})
                     })
                     .catch(err => res.status(400).json(err))
             })

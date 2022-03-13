@@ -1,27 +1,43 @@
 import React, { useState } from "react";
 import classes from "./Signup.module.css";
+import { Link } from "react-router-dom";
+import axios from "axios";
+
+import { useDispatch } from "react-redux";
+import { bindActionCreators } from 'redux'
+import { actionCreators } from '../../state';
 
 function SignupComponent() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [userName, setUserName] = useState("");
 
-  const handleSubmit = ()=>{
-      let data = {
-          email,
-          password,
-          userName
-      }
+  const dispatch = useDispatch();
 
-      console.log(data)
-  }
+  const { setUser } = bindActionCreators(actionCreators, dispatch);
 
+  const handleSubmit = () => {
+    let data = {
+      email,
+      password,
+      username:userName,
+    };
+
+    if(email && password && userName){
+      axios.post("http://localhost:5000/auth/signup", data)
+        .then(res=>{
+          setUser(res.data.userId,res.data.name,res.data.email)
+        })
+    }
+
+    // console.log(data);
+  };
 
   return (
     <div>
       <div className={classes.majorContainer}>
         <div className={classes.formStyle}>
-          <h5>Todo List</h5>
+          <h5>Todo List Signup</h5>
           <form
             onSubmit={(e) => {
               e.preventDefault();
@@ -52,6 +68,8 @@ function SignupComponent() {
               style={{ backgroundColor: "rgb(60, 187, 56)" }}
             />
           </form>
+          <br />
+          <Link to="/login">login</Link>
         </div>
       </div>
     </div>
